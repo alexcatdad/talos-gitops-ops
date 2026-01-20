@@ -14,7 +14,7 @@
       "author": {
         "name": "Alex"
       },
-      "source": ".",
+      "source": "./",
       "category": "operations"
     }
   ]
