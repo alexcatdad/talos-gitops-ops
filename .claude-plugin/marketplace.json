@@ -1,0 +1,10 @@
+{
+  "name": "talos-gitops-ops",
+  "description": "Talos + GitOps operations expert plugin marketplace",
+  "plugins": {
+    "talos-gitops-ops": {
+      "path": ".",
+      "description": "Talos + GitOps operations expert. Enforces research-first, dry-run workflow."
+    }
+  }
+}
