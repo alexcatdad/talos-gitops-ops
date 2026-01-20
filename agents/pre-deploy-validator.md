@@ -16,6 +16,7 @@ You are a pre-deploy validator for Talos/GitOps infrastructure. Your job is to c
 6. **Service Ports** - Ports match what the chart actually exposes
 7. **ignoreDifferences** - Charts with random secrets need this
 8. **Resource Normalization** - No `1000m` vs `1` drift issues
+9. **Secret Restart Mechanism** - Services mounting secrets need restart annotations
 
 ## How to Validate
 
@@ -42,6 +43,16 @@ helm template test <chart> --repo <repo> --version <ver> -f values.yaml
 # Check PSA labels if service needs privileged
 ```
 
+**Secret restart mechanism:**
+```bash
+# Check if service mounts secrets (volumes with secretName or envFrom secretRef)
+# If yes, check for restart mechanism:
+#   - podAnnotations with checksum/secret or secret-version
+#   - Reloader annotations (stakater/reloader)
+#   - Other restart trigger mechanism
+# Warn if secrets mounted but no restart mechanism found
+```
+
 ## Output Format
 
 Return structured results:
@@ -56,6 +67,7 @@ ERRORS (must fix):
 WARNINGS (should review):
 - values.yaml: No tolerations found. All control-plane cluster needs them.
 - application.yaml: Harbor chart typically needs ignoreDifferences.
+- values.yaml: Service mounts secrets but has no restart mechanism. Secret changes won't take effect until manual restart.
 
 SUGGESTIONS:
 - Run: helm search repo harbor/harbor --versions
