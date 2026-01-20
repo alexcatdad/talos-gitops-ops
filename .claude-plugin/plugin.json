@@ -1,0 +1,12 @@
+{
+  "name": "talos-gitops-ops",
+  "description": "Talos + GitOps operations expert. Enforces research-first, dry-run workflow. Prevents mistakes before they happen.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alex"
+  },
+  "keywords": ["talos", "gitops", "argocd", "kubernetes", "ops", "helm", "omni"],
+  "engines": {
+    "bun": ">=1.0.0"
+  }
+}
