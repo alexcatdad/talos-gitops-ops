@@ -1,10 +1,21 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "talos-gitops-ops",
-  "description": "Talos + GitOps operations expert plugin marketplace",
-  "plugins": {
-    "talos-gitops-ops": {
-      "path": ".",
-      "description": "Talos + GitOps operations expert. Enforces research-first, dry-run workflow."
+  "description": "Talos + GitOps operations expert plugin",
+  "owner": {
+    "name": "Alex",
+    "email": "alex@example.com"
+  },
+  "plugins": [
+    {
+      "name": "talos-gitops-ops",
+      "description": "Talos + GitOps operations expert. Enforces research-first, dry-run workflow.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alex"
+      },
+      "source": ".",
+      "category": "operations"
     }
-  }
+  ]
 }
