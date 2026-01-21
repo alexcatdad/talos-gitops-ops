@@ -132,8 +132,20 @@ export TALOS_GITOPS_BOOTSTRAP=true
 # kubectl and helm install now allowed
 ```
 
+## External Secrets Operator
+
+When using ESO with CNPG managed roles:
+
+- `cnpg.io/reload` label goes on **target Secret** (via `template.metadata.labels`)
+- When using `template`, always include `template.data`
+- Migration may require one-time password sync job
+
+See `eso-cnpg-pattern` skill for full details.
+
 ## Related Skills
 
 - `add-service` - Scaffold new service with correct config
 - `add-secret` - Generate KSOPS-encrypted secrets
 - `cluster-status` - Health overview of all services
+- `eso-cnpg-pattern` - ESO + CNPG integration pattern
+- `secret-restart-pattern` - Handling secret changes
